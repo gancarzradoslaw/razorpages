@@ -1,0 +1,61 @@
+﻿@page
+@model ToDoList.IndexModel
+@{
+}
+
+
+<h2>My activities</h2>
+<a asp-page="Add">Add new</a>
+
+@if (Model.HasMessage)
+{
+    <div class="alert alert-success alert-dismissible fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+        @Model.Message
+    </div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <form method="post">
+            @foreach (var activity in Model.Activities)
+            {
+                <tr>
+                    <th scope="row"></th>
+                    <td>
+                        @activity.Name
+                    </td>
+                    <td>
+                        @activity.Desription
+                    </td>
+                    <td>
+                        <button type="submit"
+                                class="btn btn-sm btn-danger"
+                                asp-page-handler="delete"
+                                asp-route-id="@activity.Id">
+                            delete
+                        </button>
+                    </td>
+                    <td>
+                        <a asp-page="./Edit"
+                                class="btn btn-sm btn-success"
+                                asp-route-id="@activity.Id">
+                            edit
+                        </a>
+                    </td>
+                </tr>
+            }
+        </form>
+    </tbody>
+</table>
