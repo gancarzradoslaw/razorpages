@@ -1,3 +1,3 @@
 # Razor Pages
 
-Prezentacja do wglądu na: https://razorpages.rgancarz.pl
+Prezentacja do wglądu na: http://razorpages.rgancarz.pl
